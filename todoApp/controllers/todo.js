@@ -48,7 +48,59 @@ const getTodo = async (req, res) => {
   }
 };
 
+const updateTodo = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const { title, description } = req.body;
+
+    //update
+    const updatedTodo = await Todo.findByIdAndUpdate(
+      _id,
+      {
+        title,
+        description,
+      },
+      { new: true }
+    );
+    // Check if Todo was found and updated
+    if (!updatedTodo) {
+      return res.status(404).json({ error: "Todo not found." });
+    }
+
+    //saving
+    res.json({
+      message: "successfully updated",
+      updatedTodo,
+    });
+  } catch (err) {
+    res.status(404).json({
+      message: "something wrong",
+      err: err.message,
+    });
+  }
+  //fetch
+};
+
+const deleteTodo = async (req, res) => {
+  try {
+    const { _id } = req.params;
+
+    //update
+    await Todo.findByIdAndDelete(_id);
+
+    res.json({
+      message: "successfully deleted",
+    });
+  } catch (err) {
+    res.status(404).json({
+      message: "something wrong",
+      err: err.message,
+    });
+  }
+};
 module.exports = {
   createTodo,
   getTodo,
+  updateTodo,
+  deleteTodo,
 };
