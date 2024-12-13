@@ -50,12 +50,13 @@ const getTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   try {
-    const { _id } = req.params;
+    console.log("1");
+    const { id } = req.params;
     const { title, description } = req.body;
-
+    console.log("2");
     //update
     const updatedTodo = await Todo.findByIdAndUpdate(
-      _id,
+      id,
       {
         title,
         description,
@@ -83,10 +84,10 @@ const updateTodo = async (req, res) => {
 
 const deleteTodo = async (req, res) => {
   try {
-    const { _id } = req.params;
+    const { id } = req.params;
 
     //update
-    await Todo.findByIdAndDelete(_id);
+    await Todo.findByIdAndDelete(id);
 
     res.json({
       message: "successfully deleted",
