@@ -32,6 +32,23 @@ const createTodo = async (req, res) => {
   }
 };
 
+const getTodo = async (req, res) => {
+  try {
+    const alltodo = await Todo.find({});
+
+    res.status(200).json({
+      message: "sucess",
+      alltodos: alltodo,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "something wrong",
+      err: err.message,
+    });
+  }
+};
+
 module.exports = {
   createTodo,
+  getTodo,
 };
