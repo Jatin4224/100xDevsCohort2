@@ -1,0 +1,38 @@
+/* General styles for the document */
+html,
+body {
+  height: 100%; /* Ensures the document spans the full viewport height */
+  width: 100%; /* Ensures the document spans the full viewport width */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Page-specific styles */
+#page1,
+#page2,
+#page3 {
+  height: 100vh; /* Full viewport height for each page */
+  width: 100%; /* Full viewport width for each page */
+}
+
+#page1 {
+  background-color: black;
+}
+
+#page2 {
+  background-color: rgb(95, 171, 181);
+}
+
+#page3 {
+  background-color: black;
+}
+
+/* Styling for the h1 inside #page2 */
+#page2 h1 {
+  font-size: 40vw; /* Large, responsive font size relative to viewport width */
+  font-weight: 400; /* Normal font weight */
+  margin: 0; /* Removes any default margin */
+  text-align: center; /* Centers the text horizontally */
+  color: white; /* Ensures readability against the background */
+}
