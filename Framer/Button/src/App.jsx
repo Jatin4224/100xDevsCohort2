@@ -7,6 +7,7 @@ const App = () => {
           rotateX: 25,
           rotateY: 10,
           boxShadow: "0px 20px 50px rgba(8,112,184,0.7)",
+          y: -5,
         }}
         style={{ translateZ: 100 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
