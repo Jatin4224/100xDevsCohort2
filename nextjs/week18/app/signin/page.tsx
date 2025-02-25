@@ -22,8 +22,7 @@ export default function Signin() {
         <button
           onClick={() => {
             axios.post("http://localhost:3000/api/v1/signup", {
-              username,
-              password,
+              body: { username, password },
             });
           }}
         >
