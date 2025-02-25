@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function Signin() {
+export default function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -27,7 +27,7 @@ export default function Signin() {
             });
           }}
         >
-          Sign In
+          Sign Up
         </button>
       </div>
     </div>
