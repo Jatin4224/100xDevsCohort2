@@ -15,3 +15,12 @@ model User {
   age Int
 }
 
+
+model Todo {
+  id Int @id
+  title String
+  description String
+  done Boolean
+  userId Int
+}
+
