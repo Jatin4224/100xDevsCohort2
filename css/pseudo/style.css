@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/* p {
+  width: fit-content;
+  position: relative;
+}
+p::before {
+  position: absolute;
+  top: 100%;
+  content: " ";
+  width: 100%;
+  height: 3px;
+  background-color: red;
+} */
+
+h1::first-line {
+  color: brown;
+}
+
+h1::first-letter {
+  font-size: 120px;
+}
+
+h1::selection {
+  color: green;
+}
+
+h1:hover {
+  color: RED;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+}
+button:active {
+  color: rgb(177, 139, 214);
+}
+
+input:focus {
+  background-color: red;
+}
+
+p:nth-child(2) {
+  color: rgb(53, 42, 42);
+}
