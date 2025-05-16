@@ -129,3 +129,43 @@ body {
 #overlay2 img {
   height: 3vw;
 }
+
+#scroll {
+  height: 40vh;
+
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#container {
+  height: 40vh;
+  width: 100%;
+
+  display: inline-block;
+  padding: 1vw;
+  animation-name: anime;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#scroll::-webkit-scrollbar {
+  display: none;
+}
+#scroll img {
+  height: 100%;
+  border-radius: 50%;
+  width: 16%;
+  object-fit: cover;
+  object-position: 30% 30%;
+  margin: 5px;
+}
+
+@keyframes anime {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
