@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  height: 600px;
+  position: relative;
+  animation-name: luffy;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+#box {
+  width: 140px;
+  height: 100px;
+  position: relative;
+  background-color: black;
+  animation: luffy;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+
+@keyframes luffy {
+  0% {
+    left: 0;
+    top: 0;
+    rotate: 0deg;
+  }
+  50% {
+    left: 80%;
+    top: 0;
+    rotate: 0deg;
+  }
+  100% {
+    left: 80%;
+    top: 50%;
+    rotate: 360deg;
+  }
+}
