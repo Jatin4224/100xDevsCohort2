@@ -1,12 +1,11 @@
-//task- create a page with two images and a button.when the button is clicked,swao the source attribute of the image.
-let img1 = document.querySelector("#img1");
-let img2 = document.querySelector("#img2");
-let btn = document.querySelector("button");
+//task-create a form with input fields and a submit button.use js to valdiate the form and display an error message if the inpur is invalid.
 
-btn.addEventListener("click", function () {
-  let src1 = img1.src;
-  let src2 = img2.src;
+//1-prevent form realoading using preventDefault();
 
-  img1.src = src2;
-  img2.src = src1;
+let form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 });
+
+//2) check inputs blank hain ky
