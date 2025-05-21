@@ -1,1 +1,1 @@
-//create an unordered list. Allow users to add and remove list items dynmaically using buttons.hint-appendchild
+//build a countdown timer that starts when a button is clickd and updates the display in real-time.
