@@ -181,3 +181,51 @@ const Box = () => {
 export default Box;
 
 
+
+//conditional rendering
+
+function App() {
+  return (
+    <>
+      <div class="App">
+        <Box firstName="jatin" button />
+        <Box firstName="Setu" />
+      </div>
+    </>
+  );
+}
+
+
+import Image from "./Image";
+import InsideBox from "./InsideBox";
+
+const Box = ({ firstName, button }) => {
+  const data = ["hello", "My name", "is"];
+  return (
+    <div id="box">
+      <div>
+        {data.map((elem, index) => (
+          <h1 key={index}>{elem}</h1>
+        ))}
+        <h1>{firstName}</h1>
+      </div>
+      <div>
+        <InsideBox />
+      </div>
+      <div>
+        <Image />
+      </div>
+      <p>
+        <button>{button ? "click me" : "not available"}</button>
+      </p>
+    </div>
+  );
+};
+
+export default Box;
+
+
+//Handling events
+<button onClick={()=>{}}>
+  click me
+</button>

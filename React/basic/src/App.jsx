@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div class="App">
-        <Box firstName="jatin" />
+        <Box firstName="jatin" button />
         <Box firstName="Setu" />
       </div>
     </>
