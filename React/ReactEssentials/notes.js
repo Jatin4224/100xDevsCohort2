@@ -160,3 +160,24 @@ var arr2 = [
 
 const ans = arr2.filter((elem) => elem.gender === "male"); //iska ans aaya true to yh uss array m hjyga add.
 console.log(ans);
+
+//key prop warning
+//map m function m do chize accept karte ho ek value nd ek index
+//using map in component
+const Box = () => {
+  const data = ["hello", "My name", "is", "Jatin"];
+  return (
+    <div id="box">
+      <div>
+        {data.map((elem, index) => (
+          <h1 key={index}>{elem}</h1>
+        ))}
+      </div>
+      <InsideBox/>
+    </div>
+  );
+};
+
+export default Box;
+
+

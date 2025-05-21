@@ -1,9 +1,13 @@
-import "./App.css";
+import Box from "./components/box";
+import "./index.css";
 
 function App() {
   return (
     <>
-      <h1>hey</h1>
+      <div class="App">
+        <Box firstName="jatin" />
+        <Box firstName="Setu" />
+      </div>
     </>
   );
 }
