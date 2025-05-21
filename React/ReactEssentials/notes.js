@@ -271,4 +271,78 @@ function App() {
 
 export default App;
 
-//
+//using prev [trick]
+
+import { useState } from "react";
+import Box from "./components/box";
+import "./index.css";
+
+function App() {
+  const [score, setScore] = useState(0);
+  console.log(score);
+  return (
+    <>
+      <div class="App">
+        <h1> {score}</h1>
+
+        <button onClick={() => setScore((prev) => prev + 1)}>onClick</button>
+       
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//useState Advance
+
+import { useState } from "react";
+
+import "./index.css";
+
+function App() {
+  const [val, setVal] = useState({ name: "jatin", isBanned: false });
+
+  return (
+    <>
+      <div class="App">
+        <h1>name: {val.name}</h1>
+        <h2>banned:{val.isBanned.toString()}</h2>
+        <button onClick={() => setVal({ ...val, isBanned: !val.isBanned })}>
+          onClick
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+
+//Mastering useState()
+//task1 - humara jo button h Banned ki value false hone par uska colour red hojaye.true ho tab blue color false ho tab red.
+function App() {
+  const [val, setVal] = useState({ name: "jatin", isBanned: false });
+
+  return (
+    <>
+      <div class="App">
+        <h1 className="bg-amber-300">name: {val.name}</h1>
+        <h2>banned:{val.isBanned.toString()}</h2>
+        <button
+          className={`${val.isBanned ? "bg-amber-300" : "bg-amber-700"} `}
+          onClick={() => {
+            setVal({ ...val, isBanned: !val.isBanned });
+          }}
+        >
+          click me
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//task2 - aapke pas ek object hain usme name nd age field hain or aapko usme gender field or add karna hain.
+
