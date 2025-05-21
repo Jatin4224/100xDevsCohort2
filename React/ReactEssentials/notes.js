@@ -497,3 +497,95 @@ function App() {
 
 export default App;
 
+//useState in component.
+//example-01
+import { useState } from "react";
+
+const Card = () => {
+  const [val, setVal] = useState(false);
+  return (
+    <div>
+      <h1>{val === false ? "BAAHAR JAAO" : "MAT JAAO"}</h1>
+      <button onClick={() => setVal(true)}>click me</button>
+    </div>
+  );
+};
+
+export default Card;
+
+//good code
+const Card = () => {
+  const [val, setVal] = useState(false);
+  return (
+    <div>
+      <h1>{val === false ? "BAAHAR JAAO" : "MAT JAAO"}</h1>
+      <button onClick={() => setVal(() => !val)}>click me</button>
+    </div>
+  );
+};
+
+export default Card;
+
+//example-02-making a cool image slider component
+// ui
+import { useState } from "react";
+import { GoArrowRight } from "react-icons/go";
+const Card = () => {
+  const [val, setVal] = useState(false);
+  return (
+    <div className="w-full h-screen bg-zinc-300 flex justify-center items-center">
+      <div className="w-60 h-32 bg-zinc-500 rounded relative flex gap-2 overflow-hidden">
+        <img
+          className="shrink-0 -translate-x-[0%] w-full h-full object-cover"
+          src="https://plus.unsplash.com/premium_photo-1747674293429-88fb225ce220?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
+        />{" "}
+        <img
+          className="shrink-0  -translate-x-[0%] w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1747641067114-1778b0f75567?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyOHx8fGVufDB8fHx8fA%3D%3D"
+        />
+        <span
+
+          className="w-10 h-10 absolute bottom-0 flex items-center justify-center bg-[#9b82828b] rounded-full  left-1/2 -translate-x-[30%] -translate-y-[85%]"
+        >
+          <GoArrowRight size={".7em"} />
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+
+//functionality using useState()
+import { useState } from "react";
+import { GoArrowRight } from "react-icons/go";
+const Card = () => {
+  const [val, setVal] = useState(false);
+  return (
+    <div className="w-full h-screen bg-zinc-300 flex justify-center items-center">
+      <div className="w-60 h-32 bg-zinc-500 rounded relative flex gap-2 overflow-hidden">
+        <img
+          className={`shrink-0 ${
+            val === false ? "-translate-x-[0%]" : "-translate-x-[100%]"
+          } w-full h-full object-cover`}
+          src="https://plus.unsplash.com/premium_photo-1747674293429-88fb225ce220?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
+        />{" "}
+        <img
+          className={`shrink-0 ${
+            val === false ? "-translate-x-[0%]" : "-translate-x-[100%]"
+          } w-full h-full object-cover`}
+          src="https://images.unsplash.com/photo-1747641067114-1778b0f75567?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyOHx8fGVufDB8fHx8fA%3D%3D"
+        />
+        <span
+          onClick={() => setVal(() => !val)}
+          className="w-10 h-10 absolute bottom-0 flex items-center justify-center bg-[#9b82828b] rounded-full  left-1/2 -translate-x-[30%] -translate-y-[85%]"
+        >
+          <GoArrowRight size={".7em"} />
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+

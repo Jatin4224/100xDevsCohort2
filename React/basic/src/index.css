@@ -69,3 +69,6 @@ body {
   border: 4px solid rgba(10, 20, 50, 0.858);
   border-radius: 1%;
 }
+.backface-hidden {
+  backface-visibility: hidden;
+}
