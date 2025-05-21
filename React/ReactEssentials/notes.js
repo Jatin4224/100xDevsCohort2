@@ -374,4 +374,126 @@ function App() {
 
 export default App;
 
-//task4
+//array mese remove.
+//task4- remove number three from the array
+function App() {
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
+
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <h1>{item}</h1>
+        ))}
+        <button
+          onClick={() => setVal(() => val.filter((item, index) => index != 2))}
+        >click me</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//task5 - button k click par sab numbers remove jo 2 ki table m aate hain.
+function App() {
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
+
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <h1>{item}</h1>
+        ))}
+        <button
+          onClick={() =>
+            setVal(() => val.filter((item, index) => item % 2 !== 0))
+          }
+        >
+          click me
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+
+//task 6- array addition
+function App() {
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
+
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <h1>{item}</h1>
+        ))}
+        <button onClick={() => setVal([...val, 7])}>click me</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//task 7 - array ke andar objects hain print the whole data.
+// [{name:"jatin",age:24},{name:"kohli",age:25},{name:"sachin",age:42},]
+function App() {
+  const [val, setVal] = useState([
+    { name: "jatin", age: 24 },
+    { name: "kohli", age: 25 },
+    { name: "sachin", age: 42 },
+  ]);
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <div>
+            <h1>{item.name}</h1>
+            <h1>{item.age}</h1>
+          </div>
+        ))}
+        <button onClick={() => setVal([...val, 7])}>click me</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//task8- sachine ki age badhado.button click karne par.
+function App() {
+  const [val, setVal] = useState([
+    { name: "jatin", age: 24 },
+    { name: "kohli", age: 25 },
+    { name: "sachin", age: 42 },
+  ]);
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <div>
+            <h1>{item.name}</h1>
+            <h1>{item.age}</h1>
+          </div>
+        ))}
+        <button
+          onClick={() =>
+            setVal(() =>
+              val.map((item) =>
+                item.name === "sachin" ? { name: "sachin", age: 50 } : item
+              )
+            )
+          }
+        >
+          click me
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
