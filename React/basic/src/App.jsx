@@ -3,20 +3,20 @@ import Box from "./components/box";
 import "./index.css";
 
 function App() {
-  const [val, setVal] = useState({ name: "jatin", isBanned: false });
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
 
   return (
     <>
-      <div class="App">
-        <h1 className="bg-amber-300">name: {val.name}</h1>
-        <h2>banned:{val.isBanned.toString()}</h2>
+      <div>
+        {val.map((item) => (
+          <h1>{item}</h1>
+        ))}
         <button
-          className={`${val.isBanned ? "bg-amber-300" : "bg-amber-700"} `}
-          onClick={() => {
-            setVal({ ...val, isBanned: !val.isBanned });
-          }}
+          onClick={() =>
+            setVal(() => val.filter((item, index) => index != val.length - 1))
+          }
         >
-          click me
+          click me to update the array
         </button>
       </div>
     </>

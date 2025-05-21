@@ -346,3 +346,32 @@ export default App;
 
 //task2 - aapke pas ek object hain usme name nd age field hain or aapko usme gender field or add karna hain.
 
+//imp concet => useState state ko turant update nahi karta , vo useState ko update karta hain apne hisab se function completion ke baad to fix performance issues.
+//react check karta hain useState ka state badla ya nahi.
+
+
+//task3 - array ko update karna hain.
+function App() {
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
+
+  return (
+    <>
+      <div>
+        {val.map((item) => (
+          <h1>{item}</h1>
+        ))}
+        <button
+          onClick={() =>
+            setVal(() => val.filter((item, index) => index != val.length - 1))
+          }
+        >
+          click me to update the array
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//task4
