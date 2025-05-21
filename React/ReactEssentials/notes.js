@@ -229,3 +229,46 @@ export default Box;
 <button onClick={()=>{}}>
   click me
 </button>
+
+//never do this iska mtlb h function chaladiya hain.
+<button onClick={{clickHandling()}}>
+  click me
+</button>
+
+//apne ko click ho tab hi function chalana hain.
+<button onClick={{clickHandling}}>
+  click me
+</button>
+
+
+//State Management in React.
+
+//state ek data hota hain,react is data ka khayaal rakhta hain ,jab bhi ye data change hota hain react page ko update karta hain
+//state koi bhi data ho sakta hain, jaise ki score = 0 ek state hain
+useState(0); //ab react isko change kar payega 0 se 1 .
+
+//maan lete hain aapke game main score by default 0 se shuru hota hain and futute mein wo score badhega by 10 aur apko
+// page pe show bhi karna hain jab score badhe, to us case mein aapka score vairable ek state mein rakhna jaruri hain, kyuki react isrf use hi change karta hai jo state mmein hota hain.
+
+  const [score, setScore] = useState(0);
+  // score[0] = value
+  // score[1]= function jo update karta hain value.
+
+function App() {
+  const [score, setScore] = useState(0);
+  console.log(score);
+  return (
+    <>
+      <div class="App">
+        <h1> {score}</h1>
+
+        <button onClick={() => setScore(score + 1)}>onClick</button>
+       
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+//
