@@ -24,26 +24,17 @@
 // src/components/Card.jsx
 import React from "react";
 
-const Card = ({ data, handleClick, index }) => {
-  const { name, job, image, friends } = data;
-
+const Card = () => {
   return (
-    <div className="w-60 bg-white rounded-md overflow-hidden shadow-lg">
-      <div className="w-full h-32 bg-sky-200">
-        <img className="w-full h-full object-cover" src={image} alt={name} />
+    <div className="w-60 bg-zinc-100 p-4 rounded-md flex flex-col gap-4 shadow-md">
+      <div className="w-20 h-20 bg-green-600 rounded-md"></div>
+      <div>
+        <h3 className="text-xl leading-none font-semibold">Song Name</h3>
+        <h6 className="text-sm text-zinc-600">Artist Name</h6>
       </div>
-      <div className="w-full p-4">
-        <h3 className="text-xl font-semibold capitalize">{name}</h3>
-        <h5 className="text-sm text-gray-600 capitalize">{job}</h5>
-        <button
-          onClick={() => handleClick(index)}
-          className={`mt-4 px-4 py-1 text-xs font-semibold rounded-sm ${
-            friends ? "bg-green-500 text-white" : "bg-blue-500 text-white"
-          }`}
-        >
-          {friends ? "Friends" : "Add Friend"}
-        </button>
-      </div>
+      <button className="px-4 py-2 bg-green-600 text-white text-sm rounded-sm w-40 flex justify-center items-center translate-x-[50%] -translate-y-[100%]">
+        Add to Favourites
+      </button>
     </div>
   );
 };

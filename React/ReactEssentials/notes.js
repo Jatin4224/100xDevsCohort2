@@ -798,4 +798,4 @@ const Card = ({ data, handleClick, index }) => {
 export default Card;
 
 
-//pratice exercise
+//props nd state pratice exercise
