@@ -589,3 +589,213 @@ const Card = () => {
 
 export default Card;
 
+//props
+//Props use hote hain aapke components ko reusable banane ke liye.
+// Maan lijiye aapke paas ek button component hai, aur aapko uss button ko alag-alag apps ya jagah pe use karna hai.
+// Toh aap uske data ko hardcode karne ke bajaye, parent component se props ke through bhej sakte hain, aur child component mein un props ka use kar sakte hain.
+
+// basic example
+import Card from "./components/Card";
+import "./index.css";
+
+function App() {
+  return (
+    <>
+      <div>
+        <Card buttonName="know more" color="bg-blue-600" />
+        <Card buttonName="click me" color="bg-blue-200" />
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+
+const Card = ({ buttonName, color }) => {
+  return (
+    <button
+      className={`"px-3 py-1 ${color} text-zinc-100 text-xs rounded m-2">`}
+    >
+      {buttonName}
+    </button>
+  );
+};
+
+export default Card;
+
+//prop drilling usage
+//task-humara data main app component m hoga hum usko props k through pass karenge cards m har card par ek add friend button hoga or humko add friend button par click hone par alert dena hain.
+import Card from "./components/Card";
+import "./index.css";
+
+function App() {
+  const data = [
+    {
+      name: "jatin",
+      job: "painter",
+      image:
+        "https://media.istockphoto.com/id/958064228/photo/portrait-of-happy-young-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=1bzox3frm2EJNbC2bo2EWSQYxn_SIa4ii9h5wCtlvmU=",
+    },
+    {
+      name: "setu",
+      job: "trainer",
+      image:
+        "https://media.istockphoto.com/id/1277971635/photo/portrait-of-a-smiling-man-of-indian-ethnicity.webp?a=1&b=1&s=612x612&w=0&k=20&c=WDut88fKkZMl0aqIC7s7GmZuvnv4xN9xsqdhXtYqpqE=",
+    },
+    {
+      name: "jai",
+      job: "coder",
+      image:
+        "https://media.istockphoto.com/id/1090837964/photo/handsome-man-laughing.webp?a=1&b=1&s=612x612&w=0&k=20&c=JVKjr84ZqVfPvWjsTwkFKAvsGZP47aQqpcr1lfiZQa0=",
+    },
+    {
+      name: "dhmmu",
+      job: "majdur",
+      image:
+        "https://media.istockphoto.com/id/1136413215/photo/young-man-at-street-market.webp?a=1&b=1&s=612x612&w=0&k=20&c=-e79VMWbA19l1W-8tq7-18igGSdLKsYNLkY-tWhReSE=",
+    },
+  ];
+
+  return (
+    <>
+      <div className="w-full h-screen bg-zinc-300 flex gap-4 items-center justify-center">
+        {data.map((item, index) => (
+          <Card data={item} />
+        ))}
+        ;
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+
+
+const Card = ({ data }) => {
+  const { name, job, image } = data;
+  return (
+    <div className="w-60 h-70  bg-white rounded-md overflow-hidden shadow-lg">
+      <div className="w-full h-32 bg-sky-200">
+        <img classroom="w-full h-full object-cover " src={image} />
+      </div>
+      <div className="w-full p-3 object-cover">
+        <h3 className="text-xl font-semibold">{name}</h3>
+        <h5>{job}</h5>
+
+        <button
+          onClick={() => alert("adding as a friend")}
+          className="h-6 w-20 px-6 py-2 text-xs text-white bg-blue-500 font-semibold rounded-sm"
+        >
+          Add Friend
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+
+
+//prop drilling event handling
+//ab agar hum add friend button par clcik karey to vo green color ka hojaye or friends text show karey.
+//imp note- state jahan banti hain vahi modified kari jaa sakti hain.
+// src/App.jsx
+import { useState } from "react";
+import Card from "./components/Card";
+import "./index.css";
+
+function App() {
+  const data = [
+    {
+      name: "jatin",
+      job: "painter",
+      image:
+        "https://media.istockphoto.com/id/958064228/photo/portrait-of-happy-young-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=1bzox3frm2EJNbC2bo2EWSQYxn_SIa4ii9h5wCtlvmU=",
+      friends: false,
+    },
+    {
+      name: "setu",
+      job: "trainer",
+      image:
+        "https://media.istockphoto.com/id/1277971635/photo/portrait-of-a-smiling-man-of-indian-ethnicity.webp?a=1&b=1&s=612x612&w=0&k=20&c=WDut88fKkZMl0aqIC7s7GmZuvnv4xN9xsqdhXtYqpqE=",
+      friends: false,
+    },
+    {
+      name: "jai",
+      job: "coder",
+      image:
+        "https://media.istockphoto.com/id/1090837964/photo/handsome-man-laughing.webp?a=1&b=1&s=612x612&w=0&k=20&c=JVKjr84ZqVfPvWjsTwkFKAvsGZP47aQqpcr1lfiZQa0=",
+      friends: false,
+    },
+    {
+      name: "dhmmu",
+      job: "majdur",
+      image:
+        "https://media.istockphoto.com/id/1136413215/photo/young-man-at-street-market.webp?a=1&b=1&s=612x612&w=0&k=20&c=-e79VMWbA19l1W-8tq7-18igGSdLKsYNLkY-tWhReSE=",
+      friends: false,
+    },
+  ];
+
+  const [realdata, setRealData] = useState(data);
+
+  const handleFriendsButton = (index) => {
+    setRealData((prev) =>
+      prev.map((item, i) =>
+        i === index ? { ...item, friends: !item.friends } : item
+      )
+    );
+  };
+
+  return (
+    <div className="w-full min-h-screen bg-zinc-300 flex flex-wrap gap-6 p-8 items-start justify-center">
+      {realdata.map((item, index) => (
+        <Card
+          key={index}
+          index={index}
+          data={item}
+          handleClick={handleFriendsButton}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+// src/components/Card.jsx
+import React from "react";
+
+const Card = ({ data, handleClick, index }) => {
+  const { name, job, image, friends } = data;
+
+  return (
+    <div className="w-60 bg-white rounded-md overflow-hidden shadow-lg">
+      <div className="w-full h-32 bg-sky-200">
+        <img
+          className="w-full h-full object-cover"
+          src={image}
+          alt={name}
+        />
+      </div>
+      <div className="w-full p-4">
+        <h3 className="text-xl font-semibold capitalize">{name}</h3>
+        <h5 className="text-sm text-gray-600 capitalize">{job}</h5>
+        <button
+          onClick={() => handleClick(index)}
+          className={`mt-4 px-4 py-1 text-xs font-semibold rounded-sm ${
+            friends ? "bg-green-500 text-white" : "bg-blue-500 text-white"
+          }`}
+        >
+          {friends ? "Friends" : "Add Friend"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+
+
+//pratice exercise

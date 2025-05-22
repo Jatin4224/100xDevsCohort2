@@ -1,38 +1,48 @@
-import { useState } from "react";
-import { GoArrowRight } from "react-icons/go";
+// const Card = ({ data, handleClick, index }) => {
+//   const { name, job, image, friends } = data;
+//   return (
+//     <div className="w-60 h-70  bg-white rounded-md overflow-hidden shadow-lg">
+//       <div className="w-full h-32 bg-sky-200">
+//         <img classroom="w-full h-full object-cover " src={image} />
+//       </div>
+//       <div className="w-full p-3 object-cover">
+//         <h3 className="text-xl font-semibold">{name}</h3>
+//         <h5>{job}</h5>
 
-const Card = () => {
-  const [val, setVal] = useState(false);
+//         <button
+//           onClick={() => handleClick(index)}
+//           className="h-6 w-20 px-6 py-2 text-xs text-white bg-blue-500 font-semibold rounded-sm"
+//         >
+//           {friends === true ? "Friends" : "remove friend"}
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Card;
+// src/components/Card.jsx
+import React from "react";
+
+const Card = ({ data, handleClick, index }) => {
+  const { name, job, image, friends } = data;
 
   return (
-    <div className="w-full h-screen bg-gray-600 flex justify-center items-center">
-      <div className="w-72 h-72 [perspective:1000px]">
-        <div
-          className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
-            val ? "[transform:rotateY(180deg)]" : ""
+    <div className="w-60 bg-white rounded-md overflow-hidden shadow-lg">
+      <div className="w-full h-32 bg-sky-200">
+        <img className="w-full h-full object-cover" src={image} alt={name} />
+      </div>
+      <div className="w-full p-4">
+        <h3 className="text-xl font-semibold capitalize">{name}</h3>
+        <h5 className="text-sm text-gray-600 capitalize">{job}</h5>
+        <button
+          onClick={() => handleClick(index)}
+          className={`mt-4 px-4 py-1 text-xs font-semibold rounded-sm ${
+            friends ? "bg-green-500 text-white" : "bg-blue-500 text-white"
           }`}
         >
-          {/* Front Image */}
-          <img
-            className="absolute w-full h-full object-cover rounded backface-hidden "
-            src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-4544-622f-b428-e6d0eb50b568/raw?se=2025-05-21T18%3A09%3A23Z&sp=r&sv=2024-08-04&sr=b&scid=14520def-af6b-5039-9149-9ed87fff5e7f&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-20T22%3A32%3A18Z&ske=2025-05-21T22%3A32%3A18Z&sks=b&skv=2024-08-04&sig=FWetvew2O7L4bwDeEV8fE01l98MohpDJ%2BgcgwqZthNM%3D"
-            alt="Front"
-          />
-
-          {/* Back Image */}
-          <img
-            className="absolute w-full h-full object-cover rounded [transform:rotateY(180deg)] backface-hidden"
-            src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-fff8-622f-b9bb-d41320148c51/raw?se=2025-05-21T17%3A58%3A25Z&sp=r&sv=2024-08-04&sr=b&scid=b96b34e0-daa7-5e37-9c70-27855a93734b&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-21T10%3A15%3A07Z&ske=2025-05-22T10%3A15%3A07Z&sks=b&skv=2024-08-04&sig=VDYTFk/uQ7sZZtcvWRp07EQ0hQWM3kggbxpPaxz4rvA%3D"
-            alt="Back"
-          />
-        </div>
-
-        <span
-          onClick={() => setVal(!val)}
-          className="w-10 h-10 absolute bottom-0 flex items-center justify-center bg-[#9b82828b] rounded-full left-1/2 -translate-x-[30%] -translate-y-[85%] cursor-pointer"
-        >
-          <GoArrowRight size={".7em"} />
-        </span>
+          {friends ? "Friends" : "Add Friend"}
+        </button>
       </div>
     </div>
   );
