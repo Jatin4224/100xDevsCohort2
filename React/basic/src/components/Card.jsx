@@ -24,16 +24,29 @@
 // src/components/Card.jsx
 import React from "react";
 
-const Card = () => {
+const Card = ({ values, handleClick, index }) => {
+  const { image, name, artist, added } = values;
   return (
-    <div className="w-60 bg-zinc-100 p-4 rounded-md flex flex-col gap-4 shadow-md">
-      <div className="w-20 h-20 bg-green-600 rounded-md"></div>
-      <div>
-        <h3 className="text-xl leading-none font-semibold">Song Name</h3>
-        <h6 className="text-sm text-zinc-600">Artist Name</h6>
+    <div className="w-60 bg-zinc-100 p-12 rounded-md flex flex-col gap-4 shadow-md translate-x-[50%]">
+      <div className="w-30 h-30 bg-green-100 rounded-lg shadow-lg">
+        <div class="bg-[url('https://i.scdn.co/image/ab67616d00001e0266c218bc75b53a6fa063fc28')] bg-cover bg-center h-full w-full rounded-lg">
+          <img
+            src={image}
+            className="w-full h-full object-cover translate-x-[7%] translate-y-[7%] rounded-lg hover:hidden"
+          />
+        </div>
       </div>
-      <button className="px-4 py-2 bg-green-600 text-white text-sm rounded-sm w-40 flex justify-center items-center translate-x-[50%] -translate-y-[100%]">
-        Add to Favourites
+      <div>
+        <h3 className="text-xl leading-none font-semibold">{name}</h3>
+        <h6 className="text-sm text-zinc-600">{artist}</h6>
+      </div>
+      <button
+        onClick={() => handleClick(index)}
+        className={`px-4 py-2 ${
+          added === false ? "bg-amber-950" : "bg-green-600"
+        } text-white text-sm rounded-sm w-40 flex justify-center items-center translate-x-[50%] -translate-y-[100%]`}
+      >
+        {added === false ? "Add To Favourites" : "Added"}
       </button>
     </div>
   );
