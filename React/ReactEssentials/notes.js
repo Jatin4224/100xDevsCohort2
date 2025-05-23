@@ -837,3 +837,33 @@ export default App;
 
 //preventDefault()-> submit hone par page ko referesh hone se rokhta hain.
 //useREF SE LINK BANTA H DONO K BICH.
+
+//2) Form Handling Controlled Components.
+//aap jab bhi kuch likhe  useState k through data real time m update kardein.
+function App() {
+  const [val, setVal] = useState({ name: "" ,email:""});
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(val);
+  };
+
+  return (
+    <>
+      <form action="" onSubmit={handleSubmit}>
+        <input
+          onChange={(event) => setVal({ ...val, name: event.target.value })}
+          type="text"
+          placeholder="name"
+        />
+         <input
+          onChange={(event) => setVal({ ...val, emails: event.target.value })}
+          type="text"
+          placeholder="email"
+        />
+
+        <button type="submit">submit</button>
+      </form>
+    </>
+  );
+}
+

@@ -1,20 +1,26 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./index.css";
 function App() {
-  const name = useRef(null);
-  const age = useRef(null);
-  const email = useRef(null);
-
+  const [val, setVal] = useState({ name: "", email: "" });
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(name.current.value, age.current.value, email.current.value);
+    console.log(val);
   };
+
   return (
     <>
       <form action="" onSubmit={handleSubmit}>
-        <input ref={name} type="text" placeholder="name" />
-        <input ref={age} type="text" placeholder="age" />
-        <input ref={email} type="text" placeholder="email" />
+        <input
+          onChange={(event) => setVal({ ...val, name: event.target.value })}
+          type="text"
+          placeholder="name"
+        />
+        <input
+          onChange={(event) => setVal({ ...val, email: event.target.value })}
+          type="text"
+          placeholder="email"
+        />
+
         <button type="submit">submit</button>
       </form>
     </>
