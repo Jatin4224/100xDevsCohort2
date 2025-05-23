@@ -867,3 +867,25 @@ function App() {
   );
 }
 
+//3)react hook form
+//npm i react-hook-form
+//register provide us three things - obBlure,onChange nd
+
+import { useForm } from "react-hook-form";
+import "./index.css";
+
+function App() {
+  const { register, handleSubmit } = useForm();
+
+  return (
+    <>
+      <form action="" onSubmit={handleSubmit((data) => console.log(data))}>
+        <input {...register("name")} type="text" placeholder="name" />
+        <input {...register("email")} type="text" placeholder="email" />
+        <button type="submit">submit</button>
+      </form>
+    </>
+  );
+}
+
+export default App;
