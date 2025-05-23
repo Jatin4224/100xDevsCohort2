@@ -1,16 +1,27 @@
 import React from "react";
 import styles from "./style.module.css";
 const Navbar = ({ values }) => {
+  const favouritesCount = values.filter((item) => item.added).length;
+
   return (
-    <div className="w-full h-22 px-20 py-3 flex justify-end items-center gap-4 bg-zinc-700">
-      <div className="flex justify-center items-center h-6 w-30 px-4 bg-amber-950 text-white rounded-md text-sm gap-2">
-        <h3>Favourites</h3>
-        <h4>{values.filter((item) => item.added).length}</h4>
+    <div className="w-full px-8 py-4 flex items-center justify-between bg-zinc-800 shadow-md">
+      {/* Left Title Section */}
+      <div className="flex flex-col">
+        <h3 className="text-lg font-semibold text-white tracking-wide">
+          PSYTRANCE 2017
+        </h3>
+        <span className="text-sm text-teal-400 font-medium tracking-wider">
+          VOLUME 01
+        </span>
       </div>
-      <h3 className="text-xl font-semibold text-teal-2000 bg-zinc-700">
-        PSYTRANCE 2017
-      </h3>
-      <h3 className={styles.a}>VOLUME 01</h3>
+
+      {/* Favourites Badge */}
+      <div className="flex items-center gap-2 bg-amber-900 text-white px-4 py-2 rounded-full shadow-inner">
+        <span className="text-sm font-medium">Favourites</span>
+        <span className="text-sm font-bold bg-white text-amber-900 px-2 py-0.5 rounded-full">
+          {favouritesCount}
+        </span>
+      </div>
     </div>
   );
 };

@@ -273,7 +273,7 @@ export default App;
 
 //using prev [trick]
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Box from "./components/box";
 import "./index.css";
 
@@ -799,3 +799,41 @@ export default Card;
 
 
 //props nd state pratice exercise
+//Form handling 
+//form k sath sabse badi problem hain ki jab bhi hum usko submit karte hain vo pura page refresh kardeta hain.react ko yh pasand nahi.
+//isko solve karne k humare pass three ways hain.
+// 1) useRef
+// 2)controlled components
+// 3)react hook form - most used
+
+
+// 1)useRef
+//isme hum har input ko select karlete hain or unki value tab nikalte hain jab form submit hota hain.
+
+
+function App() {
+  const name = useRef(null);
+  const age = useRef(null);
+  const email = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(name.current.value, age.current.value, email.current.value);
+  };
+  return (
+    <>
+      <form action="" onSubmit={handleSubmit}>
+        <input ref={name} type="text" placeholder="name" />
+        <input ref={age} type="text" placeholder="age" />
+        <input ref={email} type="text" placeholder="email" />
+        <button type="submit">submit</button>
+      </form>
+    </>
+  );
+}
+
+export default App;
+
+
+//preventDefault()-> submit hone par page ko referesh hone se rokhta hain.
+//useREF SE LINK BANTA H DONO K BICH.

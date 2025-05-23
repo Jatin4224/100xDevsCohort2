@@ -23,30 +23,40 @@
 // export default Card;
 // src/components/Card.jsx
 import React from "react";
-
 const Card = ({ values, handleClick, index }) => {
   const { image, name, artist, added } = values;
+
   return (
-    <div className="w-60 bg-zinc-100 p-12 rounded-md flex flex-col gap-4 shadow-md translate-x-[50%]">
-      <div className="w-30 h-30 bg-green-100 rounded-lg shadow-lg">
-        <div class="bg-[url('https://i.scdn.co/image/ab67616d00001e0266c218bc75b53a6fa063fc28')] bg-cover bg-center h-full w-full rounded-lg">
-          <img
-            src={image}
-            className="w-full h-full object-cover translate-x-[7%] translate-y-[7%] rounded-lg hover:hidden"
-          />
-        </div>
+    <div className="w-50 bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center gap-4 p-6 transition-transform hover:scale-105 duration-300 group">
+      {/* Image Container */}
+      <div className="relative w-full h-30 bg-gradient-to-br from-green-100 to-green-200 rounded-xl overflow-hidden">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+        />
+        {/* Optional background image behind */}
+        <div className="absolute inset-0 bg-[url('https://i.scdn.co/image/ab67616d00001e0266c218bc75b53a6fa063fc28')] bg-cover bg-center opacity-20 rounded-xl" />
       </div>
-      <div>
-        <h3 className="text-xl leading-none font-semibold">{name}</h3>
-        <h6 className="text-sm text-zinc-600">{artist}</h6>
+
+      {/* Content */}
+      <div className="text-center">
+        <h3 className="text-lg font-semibold text-zinc-800">{name}</h3>
+        <p className="text-sm text-zinc-500">{artist}</p>
       </div>
+
+      {/* Button */}
       <button
         onClick={() => handleClick(index)}
-        className={`px-4 py-2 ${
-          added === false ? "bg-amber-950" : "bg-green-600"
-        } text-white text-sm rounded-sm w-40 flex justify-center items-center translate-x-[50%] -translate-y-[100%]`}
+        className={`mt-2 px-4 py-2 rounded-md text-sm font-medium w-48 transition-colors duration-300
+          ${
+            added
+              ? "bg-green-600 hover:bg-green-700"
+              : "bg-amber-700 hover:bg-amber-800"
+          } 
+          text-white`}
       >
-        {added === false ? "Add To Favourites" : "Added"}
+        {added ? "Added" : "Add to Favourites"}
       </button>
     </div>
   );
