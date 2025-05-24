@@ -72,3 +72,11 @@ body {
 .backface-hidden {
   backface-visibility: hidden;
 }
+
+.padding {
+  padding: 2vh;
+}
+
+.padding-button {
+  padding: 3px 2px;
+}

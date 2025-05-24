@@ -1,16 +1,16 @@
-import { useForm } from "react-hook-form";
+import Cards from "./components/Cards";
+import Form from "./components/Form";
 import "./index.css";
 
 function App() {
-  const { register, handleSubmit } = useForm();
-
   return (
     <>
-      <form action="" onSubmit={handleSubmit((data) => console.log(data))}>
-        <input {...register("name")} type="text" placeholder="name" />
-        <input {...register("email")} type="text" placeholder="email" />
-        <button type="submit">submit</button>
-      </form>
+      <div className="w-full h-screen bg-zinc-200 flex items-center justify-center">
+        <div className="container mx-auto">
+          <Cards />
+          <Form />
+        </div>
+      </div>
     </>
   );
 }
