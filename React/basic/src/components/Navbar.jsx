@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./style.module.css";
+
 const Navbar = ({ values }) => {
   const favouritesCount = values.filter((item) => item.added).length;
 

@@ -889,3 +889,19 @@ function App() {
 }
 
 export default App;
+
+
+
+//Routing
+// Go to Main.js nd wrapp your app in BrowserRouter.
+//creating components so we can navigate to one another
+// In react we dont use anchor tag because whenever we will click a tag it refreshes our page.so in react we will use Link TAG.
+//Routes
+const App = ()=>{
+  <>
+<Routes>
+<Routes path="/" element={<Home/> }/>
+<Routes path="/user" element={<User/> }/>
+</Routes>
+</>
+};

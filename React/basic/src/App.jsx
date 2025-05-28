@@ -2,6 +2,7 @@ import { useState } from "react";
 import Cards from "./components/Cards";
 import Form from "./components/Form";
 import "./index.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [users, setUsers] = useState([]);
