@@ -951,3 +951,10 @@ const gobackhandler = ()=>{
 <h1>{name}</h1>
 
 <button OnClick={gobackhandler}>go back to user route</button>
+
+//outlet
+agar is component ka child hai or vo open hoga to jaha outlet klikha hoga udhar open hoga
+
+<Route path="/user" element={<User/>}>
+<Route path="/user/:name" element={<UserDetail/>}/>
+</Route>
