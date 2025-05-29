@@ -900,8 +900,54 @@ export default App;
 const App = ()=>{
   <>
 <Routes>
-<Routes path="/" element={<Home/> }/>
-<Routes path="/user" element={<User/> }/>
+<Route path="/" element={<Home/> }/>
+<Route path="/user" element={<User/> }/>
 </Routes>
 </>
 };
+
+//optimizing code
+//creating utils folder -> routing.jsx
+// now we will write routing code here nd export this Routing component to the app component
+const App = ()=>{
+  return (
+    <>
+    <Nav/>
+    <Routing/>
+    </>
+  )
+}
+
+//we can use NavLink instead of Link tag
+//<NavLink style={(e)=>{return{color:e.isActive?"tomato":"",};} to="/">Home</NavLink>
+//this is what navlink does 
+//we can use style or class 
+<Navlink className={(e)=>{console.log(e)}} to="/about">About</Navlink>
+<Navlink className={(e)=>{return [
+  e.isActive ? "text-red-200":"",
+  e.isActive ? "text-bold":"",
+].join("");
+} to="/about">About</Navlink>
+
+//we can also use span tag
+
+//Dynamic Routing
+// i want to create child route 
+<Route path="/user/:name" element={<UserDetail/>}/>  //agar john par aaye hatio john ki detail show hoga
+//react router dom gives us useParams.
+
+const name = useParams();
+
+<h1>{name}</h1>
+
+//useNavigate
+
+const navigate = useNavigate();
+
+const gobackhandler = ()=>{
+  navigate("/user")
+}
+
+<h1>{name}</h1>
+
+<button OnClick={gobackhandler}>go back to user route</button>
