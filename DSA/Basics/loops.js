@@ -37,3 +37,10 @@ for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
   }
 }
+//while loop
+let i = 0;
+while (i < 5) {
+  //this is body of loop
+  console.log(hello);
+  i++;
+}
