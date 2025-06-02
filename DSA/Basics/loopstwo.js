@@ -27,13 +27,16 @@
 
 //Q2) write a function that returns the number of negative numbers in an array.
 
-let arr1 = [-1, -1, -3, 2, -1, 5, -2];
-
-//1)
-for (i = 0; i < arr1.length; i++) {
+function totalCount(arr) {
   let count = 0;
-  if (arr1[i] < 0) {
-    let total = count++;
-    console.log(total);
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      count++;
+    }
   }
+  return count;
 }
+
+let arr = [1, 2, 3, -1, -2, -3, -2];
+let result = totalCount(arr);
+console.log(result);
