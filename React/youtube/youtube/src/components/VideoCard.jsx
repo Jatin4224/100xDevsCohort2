@@ -14,4 +14,11 @@ const VideoCard = ({ cardContent }) => {
   );
 };
 
+// export const HigherOrderFunction = ({ cardContent }) => {
+//   return (
+//     <div className="border border-red-900 m-1 p-1">
+//       <VideoCard cardContent={cardContent} />
+//     </div>
+//   );
+// };
 export default VideoCard;

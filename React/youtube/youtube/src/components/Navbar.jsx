@@ -2,7 +2,26 @@ import { RiSearchLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { useEffect, useState } from "react";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
+
+  const getSearchSuggestions = async () => {
+    console.log(searchQuery);
+
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const response = await data.json();
+    console.log(response);
+  };
+
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -26,6 +45,8 @@ const Navbar = () => {
           type="text"
           placeholder="Search anything"
           className="w-full h-10 pl-6 pr-10 rounded-full text-sm text-zinc-700 outline-none shadow-inner bg-gray-100"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
         />
         <RiSearchLine className="absolute right-3 top-1/2 transform -translate-y-1/2 text-zinc-500" />
       </div>
