@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => getSearchSuggestions(), 200);
@@ -19,7 +20,7 @@ const Navbar = () => {
 
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const response = await data.json();
-    console.log(response);
+    setSuggestions(response[1]);
   };
 
   const dispatch = useDispatch();
@@ -49,6 +50,13 @@ const Navbar = () => {
           onChange={(event) => setSearchQuery(event.target.value)}
         />
         <RiSearchLine className="absolute right-3 top-1/2 transform -translate-y-1/2 text-zinc-500" />
+      </div>
+      <div className=" shadow-[0_4px_10px_rgba(255,0,0,0.5)] bg-[#ffffff] -translate-x-233 mt-70 w-60 rounded-b-lg ">
+        <ul className="flex flex-col pl-2">
+          {suggestions.map((suggestion) => (
+            <li className="border-b border-zinc-100">{suggestion}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
