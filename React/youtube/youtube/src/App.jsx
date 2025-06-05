@@ -1,24 +1,18 @@
 import Body from "./components/Body";
 import Navbar from "./components/Navbar";
-
+import store from "./utils/store";
+import { Provider } from "react-redux";
 function App() {
   return (
     <>
-      <div className="bg-[#1F1E24]  h-screen w-screen">
-        <Navbar />
-        <Body />
-      </div>
+      <Provider store={store}>
+        <div className="bg-[#1F1E24]  h-screen w-screen flex flex-col gap-10">
+          <Navbar />
+          <Body />
+        </div>
+      </Provider>
     </>
   );
 }
 
 export default App;
-
-//  navbar
-//  Body
-//  -sidebar
-//    -MenuItems
-//  -MainContainer
-//    ButtonsList
-//    videocontainer
-//     videoCard

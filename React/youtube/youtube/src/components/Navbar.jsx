@@ -1,27 +1,25 @@
 import { RiSearchLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
+
 const Navbar = () => {
   return (
-    <div>
-      <div className="h-20 p-2 flex justify-end items-center gap-4 relative ml-50 ">
-        <div className="flex items-center shadow-lg -translate-x-40 ">
-          <CiMenuBurger className="h-6 w-6 text-zinc-400 " />
-        </div>
-        <div className="rounded-sm h-20 w-40 mt-8 shadow-[0_4px_10px_rgba(255,0,0,0.5)]  -translate-x-30">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNBI61LMEEI4izWwfjyZlJHTNgIlktgvuw_g&s"
-            className="h-full w-full rounded-lg object-cover"
-          ></img>
-        </div>
+    <div className="h-20 px-6 flex items-center justify-between shadow-[0_4px_10px_rgba(255,0,0,0.5)] bg-[#1F1E24] ">
+      <div className="flex items-center gap-4">
+        <CiMenuBurger className="h-6 w-6 text-zinc-500" />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNBI61LMEEI4izWwfjyZlJHTNgIlktgvuw_g&s"
+          alt="logo"
+          className="h-10 w-10 rounded  object-cover"
+        />
+      </div>
 
+      <div className="flex items-center w-1/2 relative">
         <input
-          className="w-[80%] text-zinc-400 text-bold outline-none focus:outline-none h-12 mt-10 rounded-[80px] shadow-lg"
-          placeholder="search anything"
-          type="text "
-        ></input>
-        <div className="p-4 flex items-center  mt-10 mr-120 relative -translate-x-18 ">
-          <RiSearchLine className="h-6 w-6 text-zinc-400 " />
-        </div>
+          type="text"
+          placeholder="Search anything"
+          className="w-full h-10 pl-6 pr-10 rounded-full text-sm text-zinc-700 outline-none shadow-inner bg-gray-100"
+        />
+        <RiSearchLine className="absolute right-3 top-1/2 transform -translate-y-1/2 text-zinc-500" />
       </div>
     </div>
   );
