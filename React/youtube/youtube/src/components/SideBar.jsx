@@ -3,22 +3,33 @@ import { useSelector } from "react-redux";
 
 export const SideBar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
-  //early return pattern
+
+  // Early return if menu is closed
   if (!isMenuOpen) return null;
+
   return (
-    <div className="p-5 sahdow-lg bg-white w-40 flex flex-col justify-center items-start overflow-hidden">
-      <h1 className="text-bold font-extrabold ">SUBSCRIBTION</h1>
-      <ul>
-        <li>Music</li>
-        <li>Videos</li>
-        <li>Shorts</li>
-      </ul>
-      <h1 className="text-bold font-extrabold ">WATCH LATER</h1>
-      <ul>
-        <li>TV</li>
-        <li>News</li>
-        <li>sports</li>
-      </ul>
+    <div className="p-4 w-42 shadow-[0_4px_10px_rgba(255,0,0,0.5)]  flex flex-col gap-6 text-sm">
+      <div>
+        <h2 className="text-gray-700 font-extrabold mb-2 text-xs tracking-wider">
+          SUBSCRIPTIONS
+        </h2>
+        <ul className="flex flex-col gap-1 text-gray-600">
+          <li className="hover:text-black cursor-pointer">🎵 Music</li>
+          <li className="hover:text-black cursor-pointer">📹 Videos</li>
+          <li className="hover:text-black cursor-pointer">🔥 Shorts</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 className="text-gray-700 font-extrabold mb-2 text-xs tracking-wider">
+          WATCH LATER
+        </h2>
+        <ul className="flex flex-col gap-1 text-gray-600">
+          <li className="hover:text-black cursor-pointer">📺 TV</li>
+          <li className="hover:text-black cursor-pointer">📰 News</li>
+          <li className="hover:text-black cursor-pointer">🏀 Sports</li>
+        </ul>
+      </div>
     </div>
   );
 };
