@@ -8,7 +8,7 @@ export const SideBar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="p-4 w-42 shadow-[0_4px_10px_rgba(255,0,0,0.5)]  flex flex-col gap-6 text-sm">
+    <div className="p-4 w-42 shadow-[0_4px_10px_rgba(255,0,0,0.5)]  flex flex-col gap-6 text-sm h-80">
       <div>
         <h2 className="text-gray-700 font-extrabold mb-2 text-xs tracking-wider">
           SUBSCRIPTIONS

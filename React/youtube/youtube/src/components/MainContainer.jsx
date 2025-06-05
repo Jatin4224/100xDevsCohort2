@@ -4,7 +4,7 @@ import ButtonList from "./ButtonList";
 
 const MainContainer = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen flex flex-col gap-10">
       <ButtonList />
       <VideoContainer />
     </div>

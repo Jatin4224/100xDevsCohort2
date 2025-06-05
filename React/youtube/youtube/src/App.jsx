@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <div className="bg-[#1F1E24]  h-screen w-screen flex flex-col gap-10">
+        <div className="bg-[#1F1E24]  h-full w-screen flex flex-col gap-10">
           <Navbar />
           <Body />
         </div>

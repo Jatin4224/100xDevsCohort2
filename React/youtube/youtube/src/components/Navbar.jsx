@@ -6,7 +6,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
-    console.log("hello");
   };
   return (
     <div className="h-20 px-6 flex items-center justify-between shadow-[0_4px_10px_rgba(255,0,0,0.5)] bg-[#1F1E24] ">
