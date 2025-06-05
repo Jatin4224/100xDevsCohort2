@@ -1,11 +1,20 @@
 import { RiSearchLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+    console.log("hello");
+  };
   return (
     <div className="h-20 px-6 flex items-center justify-between shadow-[0_4px_10px_rgba(255,0,0,0.5)] bg-[#1F1E24] ">
       <div className="flex items-center gap-4">
-        <CiMenuBurger className="h-6 w-6 text-zinc-500" />
+        <CiMenuBurger
+          className="h-6 w-6 text-zinc-500"
+          onClick={toggleMenuHandler}
+        />
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNBI61LMEEI4izWwfjyZlJHTNgIlktgvuw_g&s"
           alt="logo"
