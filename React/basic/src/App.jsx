@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   decrement,
   increment,
+  incrementAsync,
   incrementByAmount,
 } from "./store/reducers/counterSlice";
 
@@ -27,7 +28,7 @@ function App() {
         </button>
         <button
           className="border-b-4 hover:text-red-500"
-          onClick={() => dispatch(incrementByAmount())}
+          onClick={() => dispatch(incrementAsync(5))}
         >
           incrementByAmount
         </button>
