@@ -1,57 +1,37 @@
-// import { useState } from "react";
-// import Cards from "./components/Cards";
-// import Form from "./components/Form";
-import "./index.css";
-import axios from "axios";
-// import Navbar from "./components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  incrementByAmount,
+} from "./store/reducers/counterSlice";
 
 function App() {
-  const getProducts = () => {
-    const api = "https://fakestoreapi.in/api/products";
-    axios
-      .get(api)
-      .then((products) => {
-        console.log(products);
-      })
-      .catch((error) => console.log(error));
-  };
+  const { value } = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
 
-  const AddProducts = () => {
-    const api = "https://fakestoreapi.in/api/products";
-    axios
-      .post(api, {
-        title: "testing",
-        price: 13.5,
-        description: "lorem ipsum",
-        image: "https://i.pravatar.cc",
-        category: "electronic",
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  // const [users, setUsers] = useState([]);
-
-  // const handleFormSubmitData = (data) => {
-  //   setUsers([...users, data]);
-  // };
-
-  // const handleRemove = (id) => {
-  //   setUsers(() => users.filter((item, index) => index != id));
-  // };
   return (
     <>
-      {/* <div className="w-full h-screen bg-zinc-200 flex items-center justify-center ">
-        <div className="container mx-auto "> */}
-      {/* <Cards handleRemove={handleRemove} users={users} />
-          <Form handleFormSubmitData={handleFormSubmitData} /> */}
-      {/* </div> */}
-      {/* // </div> */}
-      <div>
-        <button onClick={getProducts}>call api</button>
-        <button onClick={AddProducts}>save new product api</button>
+      <h1 className="text-5xl">Counter: {value}</h1>
+      <div className="flex gap-6">
+        <button
+          className=" border-b-4 hover:text-red-500 "
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <button
+          className="border-b-4 hover:text-red-500"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+        <button
+          className="border-b-4 hover:text-red-500"
+          onClick={() => dispatch(incrementAsync(5))}
+        >
+          incrementByAmount
+        </button>
       </div>
     </>
   );
