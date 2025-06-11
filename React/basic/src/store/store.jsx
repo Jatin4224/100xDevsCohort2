@@ -6,10 +6,10 @@
 //   },
 // });
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./reducers/counterSlice"; // ✅ import reducer
-
+// import counterReducer from "./reducers/counterSlice"; // ✅ import reducer
+import UserReducer from "./reducers/UserReducer";
 export const store = configureStore({
   reducer: {
-    counter: counterReducer, // ✅ use the reducer function
+    UserReducer: UserReducer, // ✅ use the reducer function
   },
 });
