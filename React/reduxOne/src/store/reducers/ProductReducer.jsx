@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import axios from "axios";
 const initialState = {
   products: [],
 };
@@ -7,7 +7,12 @@ const initialState = {
 export const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    getproducts: (state, action) => {
+      state.products = action.payload;
+    },
+  },
 });
 
+export const { getproducts } = productSlice.actions;
 export default productSlice.reducer;
