@@ -17,6 +17,6 @@ Feel free to explore, learn with me, and drop a ⭐️ if you find anything help
 
 ### 📫 Let's Connect
 
-- Twitter: [@yourhandle](https://twitter.com/Jatin4224)
+- Twitter: [@jatin4224](https://twitter.com/Jatin4224)
 
 > “Learning by doing – one commit at a time 🚀”
