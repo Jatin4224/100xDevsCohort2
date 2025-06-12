@@ -27,7 +27,7 @@ const Products = () => {
             </div>
 
             <button
-              className="text-red-500 hover:text-red-700 transition-all duration-150"
+              className="text-red-400 hover:text-red-700 transition-all duration-150"
               title="Delete Product"
             >
               <FaTrash size={18} />
