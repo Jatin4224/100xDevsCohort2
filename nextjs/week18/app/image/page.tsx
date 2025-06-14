@@ -1,16 +1,9 @@
 import Image from "next/image";
 import one from "../../public/one.jpg";
-import two from "../../public/two.png";
+
 export default function ImagePage() {
   return (
     <div className="flex justify-center items-center  bg-gray-200 w-screen h-screen gap-12 relative">
-      <Image
-        src={two}
-        width={100}
-        height={100}
-        alt="image"
-        className="w-40 h-40 rounded-lg absolute z-10"
-      />
       <Image
         src={one}
         alt="image2"
@@ -21,6 +14,11 @@ export default function ImagePage() {
         placeholder="blur"
         blurDataURL=""
       />
+      <div>
+        <h1 className="text-5xl text-yellow-600 z-10 absolute -translate-x-[180%] border-b border-yellow-800 shadow-lg ">
+          Watch One Piece
+        </h1>
+      </div>
     </div>
   );
 }
